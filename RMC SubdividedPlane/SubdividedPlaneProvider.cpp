@@ -1,23 +1,24 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "DirtHillActor.h"
+#include "SubdividedPlaneProvider.h"
 
-UMaterialInterface* UDirtHillActor::GetPlaneMaterial() const
+UMaterialInterface* USubdividedPlaneProvider::GetPlaneMaterial() const
 {
 	FScopeLock Lock(&PropertySyncRoot);
 	return PlaneMaterial;
 }
 
-void UDirtHillActor::SetPlaneMaterial(UMaterialInterface* InMaterial)
+void USubdividedPlaneProvider::SetPlaneMaterial(UMaterialInterface* InMaterial)
 {
 	FScopeLock Lock(&PropertySyncRoot);
 	PlaneMaterial = InMaterial;
 	SetupMaterialSlot(0, FName("Plane Base"), PlaneMaterial);
 }
 
-void UDirtHillActor::DefineSetup(int32 inNx, int32 inNy, float inSizeX, float inSizeY)
+void USubdividedPlaneProvider::DefineSetup(int32 inNx, int32 inNy, float inSizeX, float inSizeY)
 {
+	FScopeLock Lock(&PropertySyncRoot);
 	Nx = inNy;
 	Ny = inNy;
 	SizeX = inSizeX;
@@ -25,7 +26,7 @@ void UDirtHillActor::DefineSetup(int32 inNx, int32 inNy, float inSizeX, float in
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Nx=%f"), (float)Nx));
 }
 
-void UDirtHillActor::Initialize()
+void USubdividedPlaneProvider::Initialize()
 {	
 	FRuntimeMeshLODProperties LODProperties;
 	LODProperties.ScreenSize = 0.0f;
@@ -42,14 +43,14 @@ void UDirtHillActor::Initialize()
 	MarkCollisionDirty();
 }
 
-FBoxSphereBounds UDirtHillActor::GetBounds()
+FBoxSphereBounds USubdividedPlaneProvider::GetBounds()
 {
 	FVector Ext(SizeX, SizeY, 10.0);
-	FBox Box = FBox(FVector(0.0, 0.0, -5.0), Ext);
+	FBox Box = FBox(FVector(0.0, 0.0, 200.0), Ext);
 	return FBoxSphereBounds(Box);
 }
 
-bool UDirtHillActor::GetSectionMeshForLOD(int32 LODIndex, int32 SectionId, FRuntimeMeshRenderableMeshData& MeshData)
+bool USubdividedPlaneProvider::GetSectionMeshForLOD(int32 LODIndex, int32 SectionId, FRuntimeMeshRenderableMeshData& MeshData)
 {
 	check(LODIndex == 0 && SectionId == 0);
 	float dx = SizeX / (float)Nx; //change of x between two points
@@ -97,7 +98,7 @@ bool UDirtHillActor::GetSectionMeshForLOD(int32 LODIndex, int32 SectionId, FRunt
 	return true;
 }
 
-FRuntimeMeshCollisionSettings UDirtHillActor::GetCollisionSettings()
+FRuntimeMeshCollisionSettings USubdividedPlaneProvider::GetCollisionSettings()
 {
 	FRuntimeMeshCollisionSettings Settings;
 	Settings.bUseAsyncCooking = false;
@@ -107,15 +108,15 @@ FRuntimeMeshCollisionSettings UDirtHillActor::GetCollisionSettings()
 	return Settings;
 }
 
-bool UDirtHillActor::HasCollisionMesh()
+bool USubdividedPlaneProvider::HasCollisionMesh()
 {
 	return true;
 }
 
-bool UDirtHillActor::GetCollisionMesh(FRuntimeMeshCollisionData& CollisionData)
+bool USubdividedPlaneProvider::GetCollisionMesh(FRuntimeMeshCollisionData& CollisionData)
 {
 	// Add the single collision section
-	CollisionData.CollisionSources.Emplace(0, 5, this, 0, ERuntimeMeshCollisionFaceSourceType::Collision);
+	CollisionData.CollisionSources.Emplace(0, 1, this, 0, ERuntimeMeshCollisionFaceSourceType::Collision);
 
 	FRuntimeMeshCollisionVertexStream& CollisionVertices = CollisionData.Vertices;
 	FRuntimeMeshCollisionTriangleStream& CollisionTriangles = CollisionData.Triangles;
@@ -134,7 +135,7 @@ bool UDirtHillActor::GetCollisionMesh(FRuntimeMeshCollisionData& CollisionData)
 	return true;
 }
 
-bool UDirtHillActor::IsThreadSafe()
+bool USubdividedPlaneProvider::IsThreadSafe()
 {
 	return true;
 }

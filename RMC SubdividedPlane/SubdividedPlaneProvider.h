@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "RuntimeMeshProvider.h"
-#include "DirtHillActor.generated.h"
+#include "SubdividedPlaneProvider.generated.h"
 
 
 UCLASS(HideCategories = Object, BlueprintType)
-class FISHERSISLE_API UDirtHillActor : public URuntimeMeshProvider
+class FISHERSISLE_API USubdividedPlaneProvider : public URuntimeMeshProvider
 {
 	GENERATED_BODY()
 private:
