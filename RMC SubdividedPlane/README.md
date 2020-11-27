@@ -6,7 +6,7 @@ I decided to put this example on GitHub after I struggled some time to wrap my h
 * The example contains an interface to BP.
 Down below you can see how the providers and modifiers are organized.
 ---
-**Get the RMC on https://github.com/KoderzUnreal/RuntimeMeshComponent **
+**Get the RMC on https://github.com/KoderzUnreal/RuntimeMeshComponent**
 **For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
 ---
 **Join the RMC [Discord](https://discord.gg/KGvBBTv)**
@@ -17,5 +17,4 @@ Down below you can see how the providers and modifiers are organized.
 ---
 ![SCREENSHOT](screenshot.jpg)
 ![SCREENSHOT](structure.jpg)
-![](https://gfycat.com/perkygaseousgilamonster.gif)**
-
+![Gif](https://gfycat.com/perkygaseousgilamonster.gif)
