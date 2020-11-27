@@ -7,16 +7,14 @@ I decided to put this example on GitHub after I struggled some time to wrap my h
 
 To test the example simply install the RMC plugin and copy the content of the source folder to your source folder. If you also want to use the BP RuntimemeshActor copy it from BP_Actor to your Content.
 
----
-**About the RMC**
 
+About RMC
+----------
 Get it on https://github.com/KoderzUnreal/RuntimeMeshComponent.
-For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
----
-**Join the RMC [Discord](https://discord.gg/KGvBBTv)**
-
-**Other basic examples of the features of the RMC can be found [here.](https://github.com/TriAxis-Games/RuntimeMeshComponent-Examples)**
-**A more advanced example project can be found [here.](https://github.com/Moddingear/Hexagons)**
+For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)
+Join the RMC [Discord](https://discord.gg/KGvBBTv). 
+Other basic examples of the features of the RMC can be found [here.](https://github.com/TriAxis-Games/RuntimeMeshComponent-Examples)
+A more advanced example project can be found [here.](https://github.com/Moddingear/Hexagons)
 
 ----------
 ![SCREENSHOT](screenshot.jpg)
