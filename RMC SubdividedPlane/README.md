@@ -5,12 +5,12 @@ I decided to put this example on GitHub after I struggled some time to wrap my h
 * This example contains a simple provider to create a subdivided plane mesh, modified at runtime. It shows how multiple providers and modifers are chained.
 * The example contains an interface to BP.
 
----
 To test the example simply install the RMC plugin and copy the content of the source folder to your source folder. If you also want to use the BP RuntimemeshActor copy it from BP_Actor to your Content.
 
 ---
-**Get the RMC on https://github.com/KoderzUnreal/RuntimeMeshComponent**
-**For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
+**About the RMC**
+Get it on https://github.com/KoderzUnreal/RuntimeMeshComponent.
+For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
 ---
 **Join the RMC [Discord](https://discord.gg/KGvBBTv)**
 
