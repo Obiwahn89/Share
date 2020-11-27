@@ -6,7 +6,7 @@ I decided to put this example on GitHub after I struggled some time to wrap my h
 * The example contains an interface to BP.
 ===================================
 To test the example simply install the RMC plugin and copy the content of the source folder to your source folder. If you also want to use the BP RuntimemeshActor copy it from BP_Actor to your Content.
----
+===================================
 **Get the RMC on https://github.com/KoderzUnreal/RuntimeMeshComponent**
 **For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
 ---
@@ -18,4 +18,4 @@ To test the example simply install the RMC plugin and copy the content of the so
 ---
 ![SCREENSHOT](screenshot.jpg)
 ![SCREENSHOT](structure.jpg)
-![Gif](https://gfycat.com/equalmilkycowbird.gif)
+![Gif](ExampleUsage.gif)
