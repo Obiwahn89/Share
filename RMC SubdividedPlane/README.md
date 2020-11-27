@@ -1,10 +1,11 @@
 
 Example for the usage of the Runtime Mesh Component for Unreal Engine 4
 ===================================
-I decided to put this example on GitHub after I struggled some time to wrap my head around the RMC plugin.
+I decided to put this example on GitHub after I struggled some time to wrap my head around the RMC plugin. Down below you can see how the providers and modifiers are organized.
 * This example contains a simple provider to create a subdivided plane mesh, modified at runtime. It shows how multiple providers and modifers are chained.
 * The example contains an interface to BP.
-Down below you can see how the providers and modifiers are organized.
+===================================
+To test the example simply install the RMC plugin and copy the content of the source folder to your source folder. If you also want to use the BP RuntimemeshActor copy it from BP_Actor to your Content.
 ---
 **Get the RMC on https://github.com/KoderzUnreal/RuntimeMeshComponent**
 **For information on installation of the plugin, usage and everything else check out the [documentation.](https://runtimemesh.koderz.io/)**
@@ -17,4 +18,4 @@ Down below you can see how the providers and modifiers are organized.
 ---
 ![SCREENSHOT](screenshot.jpg)
 ![SCREENSHOT](structure.jpg)
-![Gif](https://gfycat.com/perkygaseousgilamonster.gif)
+![Gif](https://gfycat.com/equalmilkycowbird.gif)
