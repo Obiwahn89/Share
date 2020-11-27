@@ -17,7 +17,7 @@ To test the example simply install the RMC plugin and copy the content of the so
 **Other basic examples of the features of the RMC can be found [here.](https://github.com/TriAxis-Games/RuntimeMeshComponent-Examples)**
 **A more advanced example project can be found [here.](https://github.com/Moddingear/Hexagons)**
 
----
+----------
 ![SCREENSHOT](screenshot.jpg)
 ![SCREENSHOT](structure.jpg)
 ![Gif](ExampleUsage.gif)
