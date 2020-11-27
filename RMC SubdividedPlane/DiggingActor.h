@@ -1,5 +1,5 @@
 // Obiwahn89, 25.11.2020
-// RunTimeMeshActor to use the SubdividedPlaneProvider
+// RunTimeMeshActor to initialize the SubdividedPlaneProvider
 
 #pragma once
 
@@ -20,20 +20,22 @@ private:
 		class URuntimeMeshProviderModifiers* ModifierProvider;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Meta = (ExposeFunctionCategories = "Mesh,Rendering,Physics,Components|RuntimeMesh", AllowPrivateAccess = "true"))
 		class UPlaneDeform* PlaneMeshModifier;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Meta = (ExposeFunctionCategories = "Mesh,Rendering,Physics,Components|RuntimeMesh", AllowPrivateAccess = "true"))
+		class URuntimeMeshModifierNormals* NormalModifier;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Meta = (ExposeFunctionCategories = "Mesh,Rendering,Physics,Components|RuntimeMesh", AllowPrivateAccess = "true"))
+		class URuntimeMeshProviderCollision* CollisionProvider;
+
+	int32 Nx, Ny;
+	float SizeX, SizeY;
 public:
 	UFUNCTION(BlueprintCallable)
 		void DefineSetup(int32 inNx, int32 inNy, float inSizeX, float inSizeY);
-	UFUNCTION(BlueprintCallable)
-		void DeformMesh();
+	UFUNCTION(BlueprintCallable, Meta = (ExposeFunctionCategories = "Mesh,Rendering,Physics,Components|RuntimeMesh"))
+		void DeformMesh(float inScaleZ);
 	UPROPERTY(EditAnywhere)
 		UMaterialInterface* PlaneMaterial;
 
-	int32 Nx, Ny;
-	float SizeX, SizeY, SizeZ;
-
 public:
-	// Sets default values for this actor's properties
-	ADiggingActor();
 
 	void OnConstruction(const FTransform& Transform) override;
 

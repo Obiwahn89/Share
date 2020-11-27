@@ -1,14 +1,17 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Obiwahn89, 25.11.2020
+// RunTimeMeshProvider to create a subdivided plane
 
 
 #include "SubdividedPlaneProvider.h"
 
+// Get the material of the plane
 UMaterialInterface* USubdividedPlaneProvider::GetPlaneMaterial() const
 {
 	FScopeLock Lock(&PropertySyncRoot);
 	return PlaneMaterial;
 }
 
+// Set the material of the plane
 void USubdividedPlaneProvider::SetPlaneMaterial(UMaterialInterface* InMaterial)
 {
 	FScopeLock Lock(&PropertySyncRoot);
@@ -16,6 +19,7 @@ void USubdividedPlaneProvider::SetPlaneMaterial(UMaterialInterface* InMaterial)
 	SetupMaterialSlot(0, FName("Plane Base"), PlaneMaterial);
 }
 
+// Initialized by the DiggingActor, Nx is the number of 'cells' in x and SizeX is the length in x
 void USubdividedPlaneProvider::DefineSetup(int32 inNx, int32 inNy, float inSizeX, float inSizeY)
 {
 	FScopeLock Lock(&PropertySyncRoot);
@@ -23,9 +27,9 @@ void USubdividedPlaneProvider::DefineSetup(int32 inNx, int32 inNy, float inSizeX
 	Ny = inNy;
 	SizeX = inSizeX;
 	SizeY = inSizeY;
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Nx=%f"), (float)Nx));
 }
 
+// Initialize the properties, LOD
 void USubdividedPlaneProvider::Initialize()
 {	
 	FRuntimeMeshLODProperties LODProperties;
@@ -39,19 +43,20 @@ void USubdividedPlaneProvider::Initialize()
 	Properties.MaterialSlot = 0;
 	Properties.UpdateFrequency = ERuntimeMeshUpdateFrequency::Infrequent;
 	CreateSection(0, 0, Properties);
-
-	MarkCollisionDirty();
 }
 
+// Get the bounds of the mesh
 FBoxSphereBounds USubdividedPlaneProvider::GetBounds()
 {
-	FVector Ext(SizeX, SizeY, 10.0);
-	FBox Box = FBox(FVector(0.0, 0.0, 200.0), Ext);
+	FVector Ext(SizeX, SizeY, 200.0);
+	FBox Box = FBox(FVector(0.0, 0.0, -200.0), Ext);
 	return FBoxSphereBounds(Box);
 }
 
+// Define the initial (unmodified) mesh
 bool USubdividedPlaneProvider::GetSectionMeshForLOD(int32 LODIndex, int32 SectionId, FRuntimeMeshRenderableMeshData& MeshData)
 {
+	//float newheight;
 	check(LODIndex == 0 && SectionId == 0);
 	float dx = SizeX / (float)Nx; //change of x between two points
 	float dy = SizeY / (float)Ny; //change of y between two points
@@ -65,9 +70,6 @@ bool USubdividedPlaneProvider::GetSectionMeshForLOD(int32 LODIndex, int32 Sectio
 			float xalpha = (float)xindex / (float)(Nx);
 
 			FVector Position(xvalue, yvalue, 0.0);
-
-			//float dfdx = (CalculateHeightForPoint(xvalue + dx, yvalue) - CalculateHeightForPoint(xvalue - dx, yvalue)) / (2 * dx); //derivative of f over x
-			//float dfdy = (CalculateHeightForPoint(xvalue, yvalue + dy) - CalculateHeightForPoint(xvalue, yvalue - dy)) / (2 * dy); //derivative of f over y
 
 			float dfdx = 0.0;
 			float dfdy = 0.0;
@@ -98,41 +100,15 @@ bool USubdividedPlaneProvider::GetSectionMeshForLOD(int32 LODIndex, int32 Sectio
 	return true;
 }
 
+// Collision settings
 FRuntimeMeshCollisionSettings USubdividedPlaneProvider::GetCollisionSettings()
 {
 	FRuntimeMeshCollisionSettings Settings;
 	Settings.bUseAsyncCooking = false;
-	Settings.bUseComplexAsSimple = false;
-	Settings.Boxes.Emplace(FVector(0.5*SizeX,0.5*SizeY,0.5), FRotator::ZeroRotator, SizeX, SizeY, 1.0);
+	Settings.bUseComplexAsSimple = true; //false;
+	// Settings.Boxes.Emplace(FVector(0.5*SizeX,0.5*SizeY,0.5), FRotator::ZeroRotator, SizeX, SizeY, 1.0);
 
 	return Settings;
-}
-
-bool USubdividedPlaneProvider::HasCollisionMesh()
-{
-	return true;
-}
-
-bool USubdividedPlaneProvider::GetCollisionMesh(FRuntimeMeshCollisionData& CollisionData)
-{
-	// Add the single collision section
-	CollisionData.CollisionSources.Emplace(0, 1, this, 0, ERuntimeMeshCollisionFaceSourceType::Collision);
-
-	FRuntimeMeshCollisionVertexStream& CollisionVertices = CollisionData.Vertices;
-	FRuntimeMeshCollisionTriangleStream& CollisionTriangles = CollisionData.Triangles;
-
-	FVector BoxRadiusTemp = FVector(SizeX,SizeY,1.0);
-
-	// Generate verts
-	CollisionVertices.Add(FVector(0.0, 0.0, 0.0));
-	CollisionVertices.Add(FVector(SizeX, 0.0, 0.0));
-	CollisionVertices.Add(FVector(0.0, SizeY, 0.0));
-	CollisionVertices.Add(FVector(SizeX, SizeY, 0.0));
-
-	CollisionTriangles.Add(0, 1, 2);
-	CollisionTriangles.Add(1, 3, 2);
-
-	return true;
 }
 
 bool USubdividedPlaneProvider::IsThreadSafe()
