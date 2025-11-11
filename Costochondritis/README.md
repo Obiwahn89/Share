@@ -66,13 +66,15 @@ Probable Causes
 List of Symptoms
 ----------
 These are or were my main symptoms
-* Sharp pain where T3 connects to the sternum
-* Dull pain in the centre of the chest when bending down
-* Sore xyphoid / lower ribs / oblique muscles
-* Burning or tearing of the pectoralis muscles at varying spots from the centre to the armpits
-* Spasming chest
-* Clicking sound in the thoracic spine when using the Backpod, peanut ball, doing Steve’s ballistic twists, or pulling back my elbows 
+* Sharp pain where T3 connects to the sternum - only rarely now
+* Dull pain in the centre of the chest when bending down - not anymore
+* Sore xyphoid / lower ribs / oblique muscles - especially during tense days
+* Burning or tearing of the pectoralis muscles at varying spots from the centre to the armpits - on most days
+* Spasming chest - not anymore
+* Clicking sound in the thoracic spine when using the Backpod, peanut ball, doing Steve’s ballistic twists, or pulling back my elbows
 * Clicking at the junction of the ribs and the costal cartilage when I press from the left side, roughly at nipple height, toward my sternum
+* Triggerpoints: Levator scapulae, serratus anterior, supraspinatus, rhomboid, latissimus dorsi, middle scalene
+
 Here are some symptoms that I think one could call secondary effects
 * Pain and or numbness in the left arm
 * Pain in the jaw 
@@ -83,6 +85,8 @@ And here are some symptoms I am pretty sure are connected to anxiety. I found th
 * Dizziness - to some extent
 * “Falling” sensation in the stomach
 * Cold hands
+Here is an illustration showing my trigger points as well as tense areas
+![SCREENSHOT](Triggerpoints_.png)
 
 Diagnostic Tests
 ----------
@@ -108,6 +112,10 @@ Like many people in this sub, I have tried countless exercises and stretches. Wh
 * I do dead hangs every day for at least one minute at a time. I also twist my upper body and lift me knees while hanging.
 * Tiger balm is great for making the pain more diffuse and distracting the nerves so I can stop focusing on it.
 On a sidenote I also take magnesium, Vitamin D and Omega 3 every day, but I am not sure if it helps.
+![SCREENSHOT](Chest_stretch_1.png)
+![SCREENSHOT](Chest_stretch_2.png)
+![SCREENSHOT](Chest_stretch_3.png)
+Screenshots taken from https://www.youtube.com/watch?v=iu-OEBEdiV8&t=303s
 
 What Does Not Help
 ----------
@@ -132,9 +140,4 @@ A Big Thank You
 Thank you so much, Ned, for creating this subreddit and for actively helping so many people. And thank you, Steve, for inventing the Backpod, for your helpful videos on Youtube. You both spend countless hours here and provide invaluable explanations and reassurance to those in need.
 Also, a huge thank you to everyone who has shared their own story here, especially those who fully recovered and came back to motivate and guide others. Your posts gave me perspective and hope during my darkest moments and truly made a difference.
 
-
 ----------
-![SCREENSHOT](Chest_stretch_1.png)
-![SCREENSHOT](Chest_stretch_2.png)
-![SCREENSHOT](Chest_stretch_3.png)
-Screenshots taken from https://www.youtube.com/watch?v=iu-OEBEdiV8&t=303s
