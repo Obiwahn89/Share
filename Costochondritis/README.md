@@ -111,6 +111,7 @@ Like many people in this sub, I have tried countless exercises and stretches. Wh
 * For stretching my chest, I sometimes do classic doorframes stretch, though I prefer doing one side at a time that lets me better target specific areas. I also do a stretch my osteopath showed me
 * I do dead hangs every day for at least one minute at a time. I also twist my upper body and lift me knees while hanging.
 * Tiger balm is great for making the pain more diffuse and distracting the nerves so I can stop focusing on it.
+
 On a sidenote I also take magnesium, Vitamin D and Omega 3 every day, but I am not sure if it helps.
 ![SCREENSHOT](Chest_stretch_1.png)
 ![SCREENSHOT](Chest_stretch_2.png)
